@@ -3,7 +3,7 @@
  * Este script se ejecuta en el servidor antes de compilar el TypeScript
  */
 
-const fs = require('fs');
+import { writeFileSync } from 'fs';
 
 // Lee las variables de entorno o usa valores por defecto
 const config = {
@@ -29,5 +29,5 @@ const configContent = `/**
 export const config = ${JSON.stringify(config, null, 4)};
 `;
 
-fs.writeFileSync('config.ts', configContent);
+writeFileSync('config.ts', configContent);
 console.log('✓ config.ts generado desde variables de entorno');
