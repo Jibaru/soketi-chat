@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun run --watch client.ts",
-    "build": "bun build client.ts --outfile client.js --target browser",
+    "build": "node generate-config.js && bun build client.ts --outfile client.js --target browser",
     "start": "serve . -l 3000"
   },
   "dependencies": {

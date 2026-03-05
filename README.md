@@ -135,6 +135,41 @@ soketi-example/
 - **CSS3** - Modern styling with CSS variables
 - **HTML5** - Semantic markup with ARIA
 
+## Deployment
+
+### Deploying to Dokploy / Railway / Nixpacks
+
+This application is configured to deploy on platforms using Nixpacks (Dokploy, Railway, etc.).
+
+1. **Push your code** to a Git repository (GitHub, GitLab, etc.)
+
+2. **Configure environment variables** in your deployment platform:
+   ```
+   PUSHER_APP_KEY=your-app-key
+   PUSHER_WS_HOST=your-soketi-host.com
+   PUSHER_WS_PORT=6001
+   PUSHER_FORCE_TLS=true
+   PUSHER_CLUSTER=mt1
+   PUSHER_CHANNEL=chat-room
+   ```
+
+3. **Deploy** - The platform will automatically:
+   - Install dependencies with `bun install`
+   - Generate `config.ts` from environment variables
+   - Build the TypeScript to JavaScript
+   - Start the HTTP server on port 3000
+
+4. **Important**: Make sure your Soketi server:
+   - Is accessible from the internet
+   - Has `enableClientMessages: true` enabled
+   - Allows connections from your deployed app's domain
+
+### Environment Variables
+
+See [.env.example](.env.example) for all available configuration options.
+
+The `generate-config.js` script automatically creates `config.ts` from these environment variables during build time.
+
 ## Usage
 
 1. Open the application in two browser windows/tabs
