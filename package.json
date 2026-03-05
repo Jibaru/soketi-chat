@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "bun run --watch client.ts"
+    "dev": "bun run --watch client.ts",
+    "build": "bun build client.ts --outfile client.js --target browser",
+    "start": "serve . -l 3000"
   },
   "dependencies": {
-    "pusher-js": "^8.4.0-rc2"
+    "pusher-js": "^8.4.0-rc2",
+    "serve": "^14.2.1"
   },
   "devDependencies": {
     "@types/bun": "latest"
