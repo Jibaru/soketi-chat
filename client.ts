@@ -31,9 +31,10 @@ class ChatClient {
         this.pusher = new Pusher(config.pusher.appKey, {
             wsHost: config.pusher.wsHost,
             wsPort: config.pusher.wsPort,
+            wssPort: config.pusher.wsPort,
             forceTLS: config.pusher.forceTLS,
             disableStats: true,
-            enabledTransports: config.pusher.enabledTransports as ('ws' | 'wss')[],
+            enabledTransports: config.pusher.forceTLS ? ['wss'] : ['ws'],
             cluster: config.pusher.cluster,
         });
 
