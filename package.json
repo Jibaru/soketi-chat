@@ -1,0 +1,14 @@
+{
+  "name": "soketi-chat-example",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch client.ts"
+  },
+  "dependencies": {
+    "pusher-js": "^8.4.0-rc2"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
